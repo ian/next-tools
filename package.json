@@ -7,6 +7,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup --clean --external next --external react src/index.ts && tsc --emitDeclarationOnly",
     "build:watch": "nodemon --exec \"pnpm build\""
