@@ -1,7 +1,9 @@
-import dynamic from "next/dynamic"
-import React from "react"
+import React from "react";
+import dynamic from "next/dynamic";
 
-const SafeHydrate = (props) => <React.Fragment>{props.children}</React.Fragment>
+const SafeHydrate = ({ children, ...props }) => (
+  <div {...props}>{children}</div>
+);
 export default dynamic(() => Promise.resolve(SafeHydrate), {
-  ssr: false
-})
+  ssr: false,
+});
