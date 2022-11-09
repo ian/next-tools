@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react"
+
 export default function DisableSSR({ children }) {
+  const [ssr, setSSR] = useState(true)
+  useEffect(() => {
+    setSSR(false)
+  }, [])
+
   return (
-    <div suppressHydrationWarning>
-      {typeof window === "undefined" ? null : children}
+    <div>
+      {!ssr && children}
     </div>
   )
 }
