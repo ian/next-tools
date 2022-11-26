@@ -1,7 +1,13 @@
 import fetch from "cross-fetch"
 import path from "path"
 
-const DownloadButton = ({ url, children, ...buttonProps }) => {
+type Props = {
+  url: string
+  filename?: string
+  children: React.ReactNode
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
+
+const DownloadButton = ({ url, filename, children, ...buttonProps }: Props) => {
   return (
     <button
       {...buttonProps}
@@ -20,8 +26,7 @@ const DownloadButton = ({ url, children, ...buttonProps }) => {
             const a = document.createElement("a")
             a.style.display = "none"
             a.href = url
-            const filename = path.basename(url)
-            a.setAttribute("download", filename)
+            a.setAttribute("download", filename || path.basename(url))
             document.body.appendChild(a)
             a.click()
             window.URL.revokeObjectURL(url)
