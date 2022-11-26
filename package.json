@@ -14,7 +14,9 @@
     "build": "tsup --clean --external next --external react src/index.ts && tsc --emitDeclarationOnly",
     "build:watch": "nodemon --exec \"pnpm build\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "cross-fetch": "^3.1.5"
+  },
   "peerDependencies": {
     "next": "^12.1.6",
     "react": ">=16.8",
@@ -26,5 +28,8 @@
     "next": "^12.1.6",
     "tsup": "^6.2.3",
     "typescript": "^4.6.3"
+  },
+  "prettier": {
+    "semi": false
   }
 }

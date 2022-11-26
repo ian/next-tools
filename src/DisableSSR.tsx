@@ -10,11 +10,7 @@ export const useSSR = () => {
   return { ssr }
 }
 
-export function DisableSSR({ children }) {
+export default function DisableSSR({ children }) {
   const { ssr } = useSSR()
-  return (
-    <div>
-      {!ssr && children}
-    </div>
-  )
+  return <div>{!ssr && children}</div>
 }
